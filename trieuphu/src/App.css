@@ -1,0 +1,702 @@
+@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap');
+
+:root {
+  font-family: "Be Vietnam Pro", system-ui, sans-serif;
+  color: #f6f7ff;
+  background: #080d2b;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background: radial-gradient(
+    ellipse at top,
+    #1c3473 0,
+    #0b1238 42%,
+    #070b23 100%
+  );
+  min-height: 100vh;
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+button,
+a {
+  transition: all 0.18s ease;
+}
+
+a {
+  color: #9edcff;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #fff;
+}
+
+.app-shell {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 20px max(5vw, 20px);
+  border-bottom: 1px solid #ffffff20;
+  background: #080d2bc9;
+  backdrop-filter: blur(10px);
+}
+
+.brand {
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  color: #ffd76a;
+}
+
+.nav {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.nav a {
+  padding: 9px 13px;
+  border-radius: 10px;
+  color: #d9e5ff;
+}
+
+.nav a.active,
+.nav a:hover {
+  background: #ffffff17;
+  color: #ffd76a;
+}
+
+.container {
+  width: min(1120px, 92%);
+  margin: 38px auto;
+  flex: 1;
+}
+
+footer {
+  text-align: center;
+  color: #a3b0d0;
+  padding: 22px;
+  border-top: 1px solid #ffffff15;
+  font-size: 12px;
+}
+
+/* Trang chủ và các panel */
+
+.hero,
+.panel,
+.question-card {
+  background: linear-gradient(
+    140deg,
+    #17265a,
+    #101943
+  );
+  border: 1px solid #718ee95c;
+  border-radius: 22px;
+  box-shadow: 0 20px 60px #0003;
+  padding: clamp(22px, 4vw, 42px);
+}
+
+.hero {
+  max-width: 760px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.hero-star {
+  font-size: 42px;
+  color: #ffd76a;
+  text-shadow: 0 0 25px #ffd76a66;
+}
+
+.eyebrow {
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  color: #8edbff;
+  font-weight: 800;
+}
+
+.hero h1 {
+  font-size: clamp(32px, 6vw, 56px);
+  margin: 8px 0;
+  color: #ffd76a;
+}
+
+.hero > p:not(.eyebrow) {
+  color: #c6d3f7;
+}
+
+.rules {
+  text-align: left;
+  max-width: 440px;
+  margin: 24px auto;
+  color: #d6def7;
+  line-height: 1.9;
+}
+
+.start-form {
+  display: grid;
+  gap: 10px;
+  max-width: 420px;
+  margin: 25px auto 0;
+  text-align: left;
+}
+
+.start-form label {
+  font-weight: 600;
+}
+
+.start-form input,
+.filter-row select {
+  padding: 13px 14px;
+  background: #080f31;
+  border: 1px solid #6579b6;
+  border-radius: 10px;
+  color: #fff;
+  outline: none;
+}
+
+.start-form input:focus {
+  border-color: #ffd76a;
+}
+
+/* Nút bấm */
+
+.primary,
+.secondary,
+.lifelines button,
+.danger-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  border-radius: 10px;
+  padding: 12px 18px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.primary {
+  background: linear-gradient(
+    90deg,
+    #ffd76a,
+    #ffb63d
+  );
+  color: #211739;
+}
+
+.primary:hover {
+  filter: brightness(1.08);
+  transform: translateY(-1px);
+}
+
+.primary:disabled,
+button:disabled {
+  opacity: 0.42;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.secondary {
+  background: #27365f;
+  color: white;
+  border: 1px solid #6a7eae;
+}
+
+.inline {
+  display: inline-flex;
+}
+
+/* Tiêu đề trang */
+
+.page-heading {
+  margin-bottom: 24px;
+}
+
+.page-heading h1 {
+  margin: 6px 0;
+  font-size: clamp(28px, 4vw, 40px);
+}
+
+.page-heading p:last-child {
+  color: #b9c7e8;
+}
+
+/* Ngân hàng câu hỏi */
+
+.filter-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin: 20px 0;
+}
+
+.filter-row span {
+  margin-left: auto;
+  color: #b9c7e8;
+}
+
+.table-wrap {
+  overflow-x: auto;
+  border: 1px solid #ffffff25;
+  border-radius: 12px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #111b43;
+  min-width: 650px;
+}
+
+th,
+td {
+  text-align: left;
+  padding: 13px 15px;
+  border-bottom: 1px solid #ffffff1c;
+}
+
+th {
+  background: #1d2b59;
+  color: #ffd76a;
+  font-size: 13px;
+}
+
+tr:last-child td {
+  border-bottom: 0;
+}
+
+tbody tr:hover {
+  background: #ffffff08;
+}
+
+.level {
+  padding: 4px 9px;
+  border-radius: 20px;
+  background: #174e46;
+  color: #8cf2c8;
+  font-size: 12px;
+}
+
+.level.medium {
+  background: #60451a;
+  color: #ffd785;
+}
+
+.level.hard {
+  background: #5c263b;
+  color: #ff9ab4;
+}
+
+/* Chi tiết câu hỏi */
+
+.panel h1 {
+  margin-top: 0;
+}
+
+.detail-options {
+  display: grid;
+  gap: 10px;
+  margin: 24px 0;
+}
+
+.detail-options > div {
+  padding: 14px;
+  border: 1px solid #ffffff22;
+  border-radius: 10px;
+  background: #0d1538;
+}
+
+.detail-options .detail-correct {
+  border-color: #3bdf9b;
+  background: #0b3b39;
+  color: #a4ffcf;
+}
+
+/* Trang kết quả và trang lỗi */
+
+.center {
+  text-align: center;
+}
+
+.not-found {
+  font-size: 90px;
+  font-weight: 800;
+  color: #ffd76a;
+}
+
+.empty {
+  text-align: center;
+  padding: 50px 15px;
+  background: #ffffff08;
+  border-radius: 14px;
+}
+
+/* Thống kê và lịch sử */
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin-bottom: 24px;
+}
+
+.stats > div {
+  display: grid;
+  gap: 10px;
+  background: #17234c;
+  border: 1px solid #ffffff20;
+  border-radius: 14px;
+  padding: 20px;
+}
+
+.stats span {
+  color: #b7c5e6;
+  font-size: 13px;
+}
+
+.stats b {
+  color: #ffd76a;
+  font-size: clamp(16px, 2vw, 24px);
+}
+
+.danger-button {
+  background: #9c3152;
+  color: white;
+  margin-top: 18px;
+}
+
+/* Màn hình chơi game */
+
+.game-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 270px;
+  gap: 22px;
+  align-items: start;
+}
+
+.game-main {
+  min-width: 0;
+}
+
+.game-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 16px;
+  color: #cbd8f7;
+}
+
+.timer {
+  font-weight: 800;
+  background: #183e55;
+  border: 1px solid #5bd7ff70;
+  padding: 10px 14px;
+  border-radius: 12px;
+  color: #91e8ff;
+}
+
+.timer.danger {
+  background: #64263a;
+  color: #ff9cac;
+  border-color: #ff738a;
+}
+
+.question-card {
+  text-align: center;
+  padding: 26px 20px;
+  margin-bottom: 17px;
+}
+
+.question-card h2 {
+  font-size: clamp(19px, 3vw, 27px);
+  line-height: 1.5;
+}
+
+/* Các đáp án A, B, C, D */
+
+.answers {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.answer {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  text-align: left;
+  min-height: 68px;
+  padding: 15px;
+  background: #172550;
+  border: 1px solid #627bbd;
+  border-radius: 13px;
+  color: #f4f6ff;
+  cursor: pointer;
+}
+
+.answer b {
+  color: #ffd76a;
+}
+
+.answer:hover:not(:disabled) {
+  border-color: #ffd76a;
+  background: #263665;
+}
+
+.answer.correct {
+  background: #116047;
+  border-color: #5dffc1;
+  color: #c5ffe6;
+}
+
+.answer.incorrect {
+  background: #762b43;
+  border-color: #ff849b;
+}
+
+/* Quyền trợ giúp */
+
+.lifelines {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin: 18px 0;
+}
+
+.lifelines button {
+  background: #263864;
+  color: #e7edff;
+  border: 1px solid #8297d4;
+}
+
+.lifelines button:hover:not(:disabled) {
+  border-color: #ffd76a;
+}
+
+/* Bảng tiền thưởng */
+
+.ladder {
+  background: #111a41;
+  border: 1px solid #5369a5;
+  border-radius: 16px;
+  padding: 18px;
+  position: sticky;
+  top: 16px;
+}
+
+.ladder h3 {
+  margin: 0 0 12px;
+  color: #ffd76a;
+}
+
+.ladder-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 7px 10px;
+  border-radius: 7px;
+  font-size: 13px;
+  color: #c6d3f7;
+}
+
+.ladder-row span:first-child {
+  color: #90a6e8;
+}
+
+.ladder-row.milestone {
+  font-weight: 800;
+  color: #fff;
+}
+
+.ladder-row.active {
+  background: #ffd76a;
+  color: #201638;
+  font-weight: 800;
+}
+
+.ladder-row.active span:first-child {
+  color: #201638;
+}
+
+.current-prize {
+  color: #cbd8f7;
+}
+
+.current-prize b {
+  color: #ffd76a;
+}
+
+/* Biểu đồ hỏi khán giả */
+
+.audience-chart {
+  height: 220px;
+  display: flex;
+  justify-content: space-around;
+  align-items: stretch;
+  gap: 15px;
+  padding: 15px;
+}
+
+.chart-column {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 7px;
+}
+
+.chart-column strong {
+  font-size: 12px;
+}
+
+.bar-wrap {
+  height: 150px;
+  width: 100%;
+  display: flex;
+  align-items: end;
+  justify-content: center;
+  background: #0b1233;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.bar {
+  width: 65%;
+  background: linear-gradient(
+    #67e4ff,
+    #5077f5
+  );
+  border-radius: 6px 6px 0 0;
+  min-height: 2px;
+}
+
+/* Kết quả */
+
+.result-money {
+  font-size: clamp(28px, 5vw, 48px);
+  font-weight: 800;
+  color: #ffd76a;
+  margin: 20px 0;
+}
+
+.actions {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.notice {
+  padding: 18px;
+  background: #172550;
+  border-radius: 12px;
+}
+
+.error {
+  padding: 16px;
+  background: #62263b;
+  border-radius: 12px;
+  color: #ffc2d0;
+}
+
+.game-main .panel {
+  margin-top: 15px;
+  padding: 20px;
+}
+
+/* Responsive cho tablet và điện thoại */
+
+@media (max-width: 800px) {
+  .site-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .game-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .ladder {
+    position: static;
+    order: -1;
+  }
+
+  .ladder-row {
+    display: inline-flex;
+    gap: 8px;
+    margin: 3px;
+  }
+
+  .ladder {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  .ladder h3 {
+    width: 100%;
+  }
+
+  .stats {
+    grid-template-columns: 1fr;
+  }
+
+  .container {
+    margin: 24px auto;
+  }
+
+  .answers {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav {
+    width: 100%;
+  }
+
+  .nav a {
+    padding: 8px;
+  }
+
+  .answers {
+    grid-template-columns: 1fr;
+  }
+
+  .game-top {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .lifelines button {
+    flex: 1;
+  }
+
+  .hero {
+    padding: 22px 17px;
+  }
+
+  .question-card {
+    padding: 20px 14px;
+  }
+}
